@@ -1,0 +1,26 @@
+{
+  "name": "programming-challenge",
+  "version": "1.0.0",
+  "description": "Programming Challenge for Passport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgerbich/Programming-Challenge.git"
+  },
+  "keywords": [
+    "Challenge"
+  ],
+  "author": "Sean Gerbich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgerbich/Programming-Challenge/issues"
+  },
+  "homepage": "https://github.com/sgerbich/Programming-Challenge#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
+  }
+}
