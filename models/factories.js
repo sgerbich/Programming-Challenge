@@ -4,11 +4,19 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.STRING,
             notEmpty: true
           },
-          id: {
-              type: Sequelize.INTEGER,
-              autoIncrement: true,
-              primaryKey: true,
-          }
+          numChildren: {
+            type: Sequelize.INTEGER,
+            notEmpty: true
+          },
+          lowLim: {
+            type: Sequelize.INTEGER,
+            notEmpty: true
+          },
+          upLim: {
+            type: Sequelize.INTEGER,
+            notEmpty: true
+          },
+         
     })
 
     Factories.associate = function (models) {

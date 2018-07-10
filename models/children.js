@@ -1,11 +1,7 @@
 module.exports = function (sequelize, Sequelize) {
     var Children = sequelize.define("Children", {
   
-        id: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-        },
+        
         value: {
             type: Sequelize.INTEGER,
             allowNull: false

@@ -12,10 +12,10 @@ exports.newFactory = function (req, res) {
 }
 
 exports.getFactory = function (req, res) {
-    console.log("HERE " + req.user.id);
+    console.log("HERE " + req.body.id);
     db.Factories.findAll({
         where: {
-            id: req.user.id,
+            id: 1,
         }
     }).then(function (result) {
         console.log(result);
@@ -23,3 +23,29 @@ exports.getFactory = function (req, res) {
     })
 }
 
+exports.burnFactory = function (req, res) {
+    db.Factories.destroy({
+        where: {
+            id: req.body.id
+        }
+    }).then(function (result) {
+        console.log(result);
+        res.json(result);
+    });
+}
+
+exports.updateFactory = function (req, res) {
+    console.log("here " +req.body)
+
+    db.Factories.update(
+        req.body,
+   
+        {
+            where: {
+                id: req.body.id
+
+            }
+        }).then(function (results) {
+            res.json(results);
+        });
+}

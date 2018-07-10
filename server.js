@@ -43,7 +43,7 @@ var treeRoute = require('./routes/tree-route.js')(app);
 
 
 
-
+ 
 //sync database
 models.sequelize.sync({ force: program.force }).then(function () {
     console.log('db looks fine');
