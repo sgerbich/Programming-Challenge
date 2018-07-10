@@ -40,7 +40,7 @@ var models = require('./models');
 //routes
 var authRoute = require('./routes/auth-route.js')(app);
 var treeRoute = require('./routes/tree-route.js')(app);
-
+var childRoute = require('./routes/child-route.js')(app);
 
 // force: program.force
  

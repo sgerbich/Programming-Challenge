@@ -1,6 +1,6 @@
 var newName;
 getFactories();
-
+getChildren();
 $(document).on("click", "button.changeAmt", update);
 function update() {
     var currentFactory = $(this)
@@ -69,6 +69,11 @@ function delAjax(id) {
     })
 }
 
+function getChildren() {
+    $.get('/getChild');
+    
+};
+
 function getFactories() {
     $.get('/getFactory', getFactoryList);
     
@@ -86,6 +91,7 @@ function getFactoryList(data) {
             </br>
             </div>
         `);
+
     }
     var updateButton = $("<button>");
     updateButton.text("Update Factory");
@@ -115,12 +121,12 @@ function validateForm() {
         $("#numChildrenLabel").append("<br>Must be filled out and must be a number less than 15")
         return false;
     }
-    if (upLim == "" || isNaN(upLim)) {
+    if (upLim == "" || upLim < lowLim) {
         $("#upLimLabel").append("<br>Must be a number");
         return false;
     }
 
-    if (lowLim == "" || isNaN(lowLim)) {
+    if (lowLim == "" && lowLim > upLim) {
         $("#lowLimLabel").append("<br>Must be a number");
         return false;
     }
