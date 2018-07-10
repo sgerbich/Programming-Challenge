@@ -42,10 +42,10 @@ var authRoute = require('./routes/auth-route.js')(app);
 var treeRoute = require('./routes/tree-route.js')(app);
 
 
-
+// force: program.force
  
 //sync database
-models.sequelize.sync({ force: program.force }).then(function () {
+models.sequelize.sync({  }).then(function () {
     console.log('db looks fine');
 }).catch(function (err) {
     console.log("something went wrong");

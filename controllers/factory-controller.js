@@ -14,9 +14,7 @@ exports.newFactory = function (req, res) {
 exports.getFactory = function (req, res) {
     console.log("HERE " + req.body.id);
     db.Factories.findAll({
-        where: {
-            id: 1,
-        }
+        
     }).then(function (result) {
         console.log(result);
         res.send(result);
@@ -26,7 +24,7 @@ exports.getFactory = function (req, res) {
 exports.burnFactory = function (req, res) {
     db.Factories.destroy({
         where: {
-            id: req.body.id
+            id: req.body.id 
         }
     }).then(function (result) {
         console.log(result);
