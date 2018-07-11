@@ -75,8 +75,8 @@ function postAjax(id, numVal) {
         method: "POST",
         url: "/newChild",
         data: {
-            FactoryId: id,
-            numValue : numVal
+            "FactoryId": id,
+            "numValue" : numVal
         }
     }).then(function (deleted) {
         location.reload();
