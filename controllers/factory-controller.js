@@ -4,7 +4,9 @@ var exports = module.exports = {};
 exports.newFactory = function (req, res) {
     db.Factories.create({
        facName: req.body.facName,
-       id: req.body.id
+       numChildren: req.body.numChildren,
+       upLim: req.body.upLim,
+       lowLim: req.body.lowLim
 
     }).then(function (result) {
         res.redirect('/index');

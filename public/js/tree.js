@@ -21,6 +21,7 @@ function update() {
 
 $(document).on('click', 'button.updateSubmit', ajaxPut);
 $(document).on('click', 'button.deleteButton', ajaxDel);
+$(document).on('click', 'button.addFactoryBtn', ajaxPost);
 
 function ajaxDel() {
     var id = $(this)
@@ -69,15 +70,64 @@ function delAjax(id) {
     })
 }
 
-function getChildren() {
-    $.get('/getChild');
+function postAjax(id, numVal) {
+    $.ajax({
+        method: "POST",
+        url: "/newChild",
+        data: {
+            FactoryId: id,
+            numValue : numVal
+        }
+    }).then(function (deleted) {
+        location.reload();
+    })
+}
+
+function ajaxPost() {
+    var numKids = $(this)
+    .parent()
+    .parent().attr('data-numChildren');
     
-};
+    var upperLim = $(this)
+    .parent()
+    .parent().attr('data-upLim');
+
+    var lowerLim = $(this)
+    .parent()
+    .parent().attr('data-lowLim');
+
+    var id = $(this)
+        .parent()
+        .parent().attr('data-id')
+
+    for (var i = 0; i < numKids.length; i++) {
+    
+    var numValue = randomNum(lowerLim, upperLim)
+    
+        postAjax(id, numValue);
+    
+    }
+}
+
+function getChildren() {
+    $.get('/getChild', getChildList);
+}
 
 function getFactories() {
     $.get('/getFactory', getFactoryList);
     
 };
+
+function getChildList(data) {
+    for (var i = 0; i < data.length; i++) {
+        $('#childList').append(
+            `<div class ="children" data-id='${data[i].id}'>
+            <p class='numValue'>Value: ${data[i].numValue} </p> 
+            </br>
+            </div>
+        `);
+    }
+}
 
 function getFactoryList(data) {
     

@@ -3,7 +3,7 @@ var exports = module.exports = {};
 
 exports.newChild = function (req, res) {
     db.Children.create({
-       value: req.body.value
+       numValue: req.body.numValue
     }).then(function (result) {
         res.redirect('/index');
     })

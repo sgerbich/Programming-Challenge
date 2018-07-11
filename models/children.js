@@ -1,13 +1,10 @@
 module.exports = function (sequelize, Sequelize) {
     var Children = sequelize.define("Children", {
   
-        
-        value: {
+        numValue: {
             type: Sequelize.INTEGER,
             allowNull: false
         }
-   
-      
      
     });
     Children.associate = function (models) {
