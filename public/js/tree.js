@@ -78,7 +78,7 @@ function postAjax(id, numVal) {
             "FactoryId": id,
             "numValue" : numVal
         }
-    }).then(function (deleted) {
+    }).then(function (result) {
         location.reload();
     })
 }
@@ -139,6 +139,7 @@ function getFactoryList(data) {
             <p class='empty1'></p> 
             <p class='empty2'></p> 
             </br>
+            <div> </div>
             </div>
         `);
 
