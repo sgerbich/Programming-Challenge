@@ -9,7 +9,7 @@ function update() {
     currentFactory.append('<label>');
     currentFactory.attr("for", "updateFactory");
     currentFactory.text("What is the new Name?");
-    currentFactory.addClass("updateBills");
+    currentFactory.addClass("updateFactory");
     currentFactory.append("<br>");
     currentFactory.append("<input name='updateFactory' id='newFactoryAmt' type='text'></input>");
     currentFactory.append("<br>");
@@ -87,7 +87,7 @@ function ajaxPost() {
     var numKids = $(this)
     .parent()
     .parent().attr('data-numChildren');
-    
+    console.log("this thingy" + numKids);
     var upperLim = $(this)
     .parent()
     .parent().attr('data-upLim');
@@ -134,15 +134,19 @@ function getFactoryList(data) {
     for (var i = 0; i < data.length; i++) {
 
         $('#dynamicFactories').append(
-            `<div class ="factories" data-id='${data[i].id}'>
+            `<div class ="madeFactory" data-id='${data[i].id}'>
             <p class='facName'>Factory Name: ${data[i].facName} </p>
             <p class='empty1'></p> 
             <p class='empty2'></p> 
             </br>
-            <div> </div>
+            <div class ="childList" data-id='${data[i].id}'> 
+            <br>
+            <p class ="whereKidsGo"></p>
+            <br>
+            </div>
             </div>
         `);
-
+            
     }
     var updateButton = $("<button>");
     updateButton.text("Update Factory");
@@ -152,6 +156,7 @@ function getFactoryList(data) {
     deleteButton.text("Delete this Factory");
     deleteButton.addClass('deleteButton');
     $('.empty2').append(deleteButton);
+    
 }
 
 

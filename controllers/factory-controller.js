@@ -14,11 +14,11 @@ exports.newFactory = function (req, res) {
 }
 
 exports.getFactory = function (req, res) {
-    console.log("HERE " + req.body.id);
+    // console.log("HERE " + req.body.id);
     db.Factories.findAll({
         
     }).then(function (result) {
-        console.log(result);
+        // console.log(result);
         res.send(result);
     })
 }
@@ -35,7 +35,7 @@ exports.burnFactory = function (req, res) {
 }
 
 exports.updateFactory = function (req, res) {
-    console.log("here " +req.body)
+    // console.log("here " +req.body)
 
     db.Factories.update(
         req.body,
