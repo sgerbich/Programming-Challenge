@@ -7,7 +7,7 @@ exports.index = function (req, res) {
 }
 
 
-exports.main = function (req, res) {
-    res.redirect("index");
-}
+// exports.main = function (req, res) {
+//     res.redirect("index");
+// }
 
