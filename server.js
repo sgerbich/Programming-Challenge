@@ -53,12 +53,14 @@ models.sequelize.sync({  }).then(function () {
 
 
 // checks for errors
-// app.listen(PORT, function (err) {
-//     if (!err)
-//         console.log('site is live');
-//     else console.log(err);
-// })
-server.listen(config.port, function () {
-    console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
-  });
+app.listen(process.env.PORT || 5000, function (err) {
+    if (!err)
+        console.log('site is live');
+    else console.log(err);
+})
+
+
+// server.listen(config.port, function () {
+//     console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+//   });
   
