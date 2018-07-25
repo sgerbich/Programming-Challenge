@@ -20,7 +20,7 @@ program
 
 
 //ports
-var PORT = process.env.port || 5000;
+var PORT = process.env.PORT || 5000;
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,8 +53,12 @@ models.sequelize.sync({  }).then(function () {
 
 
 // checks for errors
-app.listen(PORT, function (err) {
-    if (!err)
-        console.log('site is live');
-    else console.log(err);
-})
+// app.listen(PORT, function (err) {
+//     if (!err)
+//         console.log('site is live');
+//     else console.log(err);
+// })
+server.listen(config.port, function () {
+    console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  });
+  
